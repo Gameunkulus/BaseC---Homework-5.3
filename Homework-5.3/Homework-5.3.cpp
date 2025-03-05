@@ -19,20 +19,29 @@ public:
         this->numSides = 0;
     };
 
-    string getSides() {
-        return to_string(numSides);
+    int getSides() {
+        return numSides;
     };
 
     void setSides(int num) {
         this->numSides = num;
     };
 
-    string checkForm() {
-        return "Правильная";
+    virtual bool check() {
+            return true;        
     };
 
+    virtual string printInfo() {
+        if (check()) {
+            return "Правильная";
+        }
+        else {
+            "Неправильная";
+        };
+    }
+
     void getSidesCount() {
-        cout << "Фигура: " << endl << checkForm() << endl << "Количество сторон: " << getSides() << endl;
+        cout << "Фигура: " << endl << printInfo() << endl << "Количество сторон: " << getSides() << endl;
     };
 
 };
@@ -74,16 +83,23 @@ public:
         return "Количество сторон " + to_string(numSides);
     };
 
-    string checkForm() {
-        string text;
+    bool check() override {
         if (a == b && b == c && c == a && A == B && B == C && C == A) {
-            text = "Правильная";
+            return true;
         }
         else {
-            text = "Неправильная";
-        }
-        return text;
+            return false;
+        };
     };
+
+    string printInfo() override {
+        if (check() != true) {
+            return "Неправильная";
+        }
+        else {
+            "Правильная";
+        };
+    }
 
     string getSides() {
         string text = getSidesNum() + "\n" + "Стороны: a = " + to_string(a) + " b = " + to_string(b) + " c = " + to_string(c) + "\n" +
@@ -94,16 +110,16 @@ public:
     void getSidesCount() {
         string triangleType[] = { "Прямоугольный треугольник: ", "Равнобедренный треугольник: ", "Равносторонний треугольник: ", "Треугольник: " };
         if (C == 90) {
-            cout << triangleType[0] << endl << checkForm() << endl << getSides() << endl;
+            cout << triangleType[0] << endl << printInfo() << endl << getSides() << endl;
         }
         else if (a == b && b == c && A == 60 && B == 60 && C == 60) {
-            cout << triangleType[2] << endl << checkForm() << endl << getSides() << endl;
+            cout << triangleType[2] << endl << printInfo() << endl << getSides() << endl;
         }
         else if (a == c && A == C) {
-            cout << triangleType[1] << endl << checkForm() << endl << getSides() << endl;
+            cout << triangleType[1] << endl << printInfo() << endl << getSides() << endl;
         }
         else {
-            cout << triangleType[3] << endl << checkForm() << endl << getSides() << endl;
+            cout << triangleType[3] << endl << printInfo() << endl << getSides() << endl;
         };
     };
 
@@ -151,33 +167,42 @@ public:
         return text;
     };
 
-    string checkForm() {
-        string text;
+    bool check() override {
+
         if (a == b && b == c && c == d && d == a && A == B && B == C && C == D && D == A) {
-            text = "Правильная";
+            return true;
         }
         else {
-            text = "Неправильная";
+            return false;
         };
-        return text;
+        
     };
+
+    string printInfo() override {
+        if (check() != true) {
+            return "Неправильная";
+        }
+        else {
+            "Правильная";
+        };
+    }
 
     void getSidesCount() {
         string fourangleType[] = { "Прямоугольник : ", "Квадрат: ", "Параллелограмм: ", "Ромб: ", "Четырехугольник" };
         if (a == b && b == c && c == d && d == a && A == 90 && B == 90 && C == 90 && D == 90) {
-            cout << fourangleType[1] << endl << checkForm() << endl << getSides() << endl;
+            cout << fourangleType[1] << endl << printInfo() << endl << getSides() << endl;
         }
         else if (a == c && b == d && A == 90 && B == 90 && C == 90 && D == 90) {
-            cout << fourangleType[0] << endl << checkForm() << endl << getSides() << endl;
+            cout << fourangleType[0] << endl << printInfo() << endl << getSides() << endl;
         }
         else if (a == b && b == c && c == d && d == a && A == C && B == D) {
-            cout << fourangleType[3] << endl << checkForm() << endl << getSides() << endl;
+            cout << fourangleType[3] << endl << printInfo() << endl << getSides() << endl;
         }
         else if (a == c && b == d && A == C && B == D) {
-            cout << fourangleType[2] << endl << checkForm() << endl << getSides() << endl;
+            cout << fourangleType[2] << endl << printInfo() << endl << getSides() << endl;
         }
         else {
-            cout << fourangleType[4] << endl << checkForm() << endl << getSides() << endl;
+            cout << fourangleType[4] << endl << printInfo() << endl << getSides() << endl;
         };
     };
 
