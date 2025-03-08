@@ -108,19 +108,8 @@ public:
     };
 
     void getSidesCount() {
-        string triangleType[] = { "Прямоугольный треугольник: ", "Равнобедренный треугольник: ", "Равносторонний треугольник: ", "Треугольник: " };
-        if (C == 90) {
-            cout << triangleType[0] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else if (a == b && b == c && A == 60 && B == 60 && C == 60) {
-            cout << triangleType[2] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else if (a == c && A == C) {
-            cout << triangleType[1] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else {
-            cout << triangleType[3] << endl << printInfo() << endl << getSides() << endl;
-        };
+        string triangleType = "Треугольник: ";
+            cout << triangleType << endl << printInfo() << endl << getSides() << endl;     
     };
 
 };
@@ -183,7 +172,7 @@ public:
             return "Неправильная";
         }
         else {
-            "Правильная";
+            return "Правильная";
         };
     }
 
