@@ -177,22 +177,9 @@ public:
     }
 
     void getSidesCount() {
-        string fourangleType[] = { "Прямоугольник : ", "Квадрат: ", "Параллелограмм: ", "Ромб: ", "Четырехугольник" };
-        if (a == b && b == c && c == d && d == a && A == 90 && B == 90 && C == 90 && D == 90) {
-            cout << fourangleType[1] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else if (a == c && b == d && A == 90 && B == 90 && C == 90 && D == 90) {
-            cout << fourangleType[0] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else if (a == b && b == c && c == d && d == a && A == C && B == D) {
-            cout << fourangleType[3] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else if (a == c && b == d && A == C && B == D) {
-            cout << fourangleType[2] << endl << printInfo() << endl << getSides() << endl;
-        }
-        else {
-            cout << fourangleType[4] << endl << printInfo() << endl << getSides() << endl;
-        };
+
+            cout << "Четырехугольник " << endl << printInfo() << endl << getSides() << endl;
+        
     };
 
 
